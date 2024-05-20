@@ -1,0 +1,213 @@
+/* Custom CSS for Navbar */
+#navbar {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to right, #007bff, #2196f3); /* Warna biru gradient */
+}
+
+.navbar-brand strong {
+  color: white; /* Warna putih untuk nama website */
+  font-weight: bold; /* Tebal */
+}
+
+.nav-item a {
+  color: white;
+}
+
+/* Efek hover yang menarik */
+.nav-item a:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Warna latar belakang saat hover */
+  border-radius: 5px; /* Membuat sudut elemen sedikit melengkung */
+}
+
+@media (max-width: 991.98px) {
+  .navbar-expand-lg .container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+/* Custom CSS for Body */
+body {
+  font-family: "Poppins", sans-serif; /* Font family default */
+  background-color: #f8f9fa; /* Warna latar belakang default */
+  color: #343a40; /* Warna teks default */
+}
+
+/* Custom CSS for Dashboard */
+.container h1 {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.container-dashboard {
+  margin-top: 50px; /* Jarak antara navbar dan konten */
+}
+
+h2.dashboard-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 24px; /* Ukuran font judul */
+  font-weight: bold; /* Tebal */
+  color: blue; /* Warna teks */
+}
+
+.card {
+  margin-bottom: 20px; /* Jarak antara card */
+}
+
+.card-title {
+  font-weight: bold; /* Tebal */
+  color: #343a40; /* Warna teks */
+}
+
+.card-text {
+  font-size: 16px; /* Ukuran font teks */
+  color: #6c757d; /* Warna teks */
+}
+
+.btn-primary {
+  background: linear-gradient(to right, #007bff, #2196f3); /* Warna biru gradient */
+  border: none;
+  color: white; /* Warna teks */
+}
+
+.btn-primary:hover {
+  background: linear-gradient(to right, #0056b3, #007bff); /* Warna biru gradient yang lebih gelap */
+  color: white; /* Warna teks */
+}
+
+/* Custom CSS for Accordion */
+
+.accordion-item {
+  background-color: #fff; /* Warna latar belakang setiap accordion item */
+  margin-bottom: 10px; /* Jarak antara setiap accordion item */
+  border-radius: 5px; /* Sudut accordion item sedikit melengkung */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow untuk efek ketinggian */
+}
+
+.accordion-button {
+  background-color: #f8f9fa; /* Warna latar belakang tombol accordion */
+  color: #343a40; /* Warna teks tombol accordion */
+  border: none;
+  border-radius: 0; /* Sudut tombol accordion */
+}
+
+.accordion-button:hover {
+  background-color: #e9ecef; /* Warna latar belakang tombol accordion saat dihover */
+}
+
+.accordion-body {
+  padding: 10px; /* Padding konten accordion */
+  border-top: 1px solid #dee2e6; /* Garis pemisah antara accordion item */
+}
+
+.accordion-header {
+  font-weight: bold; /* Membuat judul accordion menjadi tebal */
+}
+
+/* Custom CSS*/
+.upload-container {
+  text-align: center; /* Pusatkan konten */
+  margin-top: 50px; /* Jarak antara navbar dan konten */ 
+}
+
+.upload-container h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.upload-form {
+  margin-top: 20px; /* Jarak antara judul dan form */
+  max-width: 500px; /* Lebar maksimum form */
+  padding: 20px; /* Ruang dalam form */
+  background-color: #f8f9fa; /* Warna latar belakang form */
+  border-radius: 10px; /* Sudut form */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow untuk efek ketinggian */
+}
+
+.upload-form input[type="text"],
+.upload-form input[type="file"] {
+  margin-bottom: 10px; /* Jarak antara input dan tombol */
+}
+
+.upload-form button[type="submit"] {
+  margin-top: 10px; /* Jarak antara tombol submit dan pesan */
+  padding: 10px 20px; /* Padding tombol */
+  border-radius: 5px; /* Sudut tombol */
+  cursor: pointer; /* Ubah kursor saat mengarah ke tombol */
+  width: 100%; /* Lebar tombol */
+}
+
+.upload-form #message {
+  margin-top: 10px; /* Jarak antara tombol submit dan pesan */
+  text-align: center; /* Pusatkan pesan */
+}
+
+.form-text {
+  margin-top: 5px; /* Jarak antara input file dan catatan */
+}
+
+/* Custom CSS for Berita Terkini */
+.container h1 {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 40px; /* Jarak antara judul dengan kartu berita */
+}
+
+.card {
+  margin-bottom: 20px; /* Jarak antara kartu berita */
+}
+
+.card-title {
+  font-weight: bold; /* Tebal */
+  color: #343a40; /* Warna teks */
+}
+
+.card-text {
+  font-size: 16px; /* Ukuran font teks */
+  color: #6c757d; /* Warna teks */
+}
+
+.card-img-top {
+  border-radius: 10px 10px 0 0; /* Sudut gambar atas */
+}
+
+/* Custom CSS for S&K PENGAJUAN PROPOSAL */
+.container-box {
+  background-color: #fff;
+  border-radius: 15px; /* Untuk membuat ujung melengkung, tingkatkan nilai border-radius */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 50px;
+  max-width: 800px; /* Atur lebar maksimum container-box */
+  margin-left: auto; /* Pusatkan container-box di tengah */
+  margin-right: auto; /* Pusatkan container-box di tengah */
+}
+
+.section-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.content ol {
+  list-style-type: decimal;
+}
+
+.content ol li {
+  margin-bottom: 10px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .container-box {
+    padding: 15px; /* Kurangi padding pada layar kecil */
+  }
+
+  .section-title {
+    font-size: 20px; /* Kurangi ukuran judul pada layar kecil */
+  }
+}
+

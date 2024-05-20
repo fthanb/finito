@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skripsi - FINITO</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body{
+        margin-left: 100px;
+        margin-right: 100px;
+      }
+      h1, h2 {
+        display: inline-block; 
+        margin-top: 20px;
+        background-color: lightblue; 
+        border-radius: 10px; 
+        padding: 10px;
+        text-align: center; 
+      }   
+      .container-box {
+        background-color: #d3d3d3; 
+        border-radius: 10px; 
+        padding: 20px; 
+        margin-bottom: 25px; 
+      }
+      .section-title {
+        margin-top: 0; 
+      }
+      .content {
+        margin-top: 10px;
+      }
+      ol {
+        padding-left: 20px; 
+      }
+      script {
+        background-color: gray;
+        text-align: center;
+      }
+      #message {
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+      #message.success {
+        color: green;
+      }
+      #message.error {
+        color: red;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href=/dashboard><strong>FINITO</strong></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href=/dashboard>Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href=/eprof>Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href=/proposal>Proposal</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href=/skripsi>Skripsi</a>
+            </li>
+          </ul>
+          <a class="btn btn-danger ms-auto me-3" href="/logout">Logout</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- S&K PENGAJUAN PROPOSAL -->
+    <h2 class="section-title">Tahapan-Tahapan Skripsi : </h2>
+    <div class="container-box">
+      <div class="content">
+        <ol>
+          <li>Pengajuan Proposal</li>
+          <li>Ujian Proposal</li>
+          <li>Proses Bimbingan & Penelitian</li>
+          <li>Ujian Skripsi</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- END PENGAJUAN PROPO SK -->
+
+    <!-- skripsi -->
+
+    <div class="upload-container">
+      <h1>Upload Skripsi</h1>
+      <div class="upload-form">
+        <form id="uploadForm" action="/skripsi" method="post" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="namaInput" class="form-label">Nama</label>
+            <input type="text" class="form-control" id="namaInput" name="nama" placeholder="Masukkan nama Anda" required />
+          </div>
+          <div class="mb-3">
+            <label for="nimInput" class="form-label">NIM</label>
+            <input type="text" class="form-control" id="nimInput" name="nim" placeholder="Masukkan NIM Anda" required />
+          </div>
+          <div class="mb-3">
+            <label for="judulInput" class="form-label">Judul Skripsi</label>
+            <input type="text" class="form-control" id="judulInput" name="judul" placeholder="Masukkan judul skripsi Anda" required />
+          </div>
+          <div class="mb-3">
+            <label for="fileInput" class="form-label">Choose File</label>
+            <input type="file" class="form-control" id="fileInput" name="pdf" required />
+            <small id="fileHelp" class="form-text text-muted">File berupa Word, PDF, atau DOCX.</small>
+          </div>
+          <button type="submit" onclick="uploadFile(event)" class="btn btn-primary">Upload</button>
+          <p id="message"></p>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      function uploadFile(event) {
+        event.preventDefault();
+
+        var form = document.getElementById("uploadForm");
+        var formData = new FormData(form);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/skripsi", true);
+        xhr.onload = function () {
+          if (xhr.status === 200) {
+            document.getElementById("message").innerText = "SKRIPSI TELAH TERSIMPAN";
+            document.getElementById("message").classList.add("success");
+          } else {
+            document.getElementById("message").innerText = "Gagal mengunggah file";
+            document.getElementById("message").classList.add("error");
+          }
+        };
+        xhr.send(formData);
+      }
+    </script>
+
+    <!-- end skripsi -->
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
