@@ -1,154 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard - FINITO</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- SLICK SLIDER -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #343a40;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+        .navbar-brand, .nav-link, .btn-danger {
+            color: #ffffff !important;
+        }
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .btn-primary {
+            display: block;
+            margin: 0 auto;
+            background: linear-gradient(45deg, #007bff, #6610f2);
+            border: none;
+        }
+        .arrow-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: black;
+            margin: 20px 0;
+        }
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 10px 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1 {
+            text-align: center;
+        }
 
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href=/dashboard><strong>FINITO</strong></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href=/dashboard>Dashboard</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href=/eprof>Profile</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href=/proposal>Proposal</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href=/skripsi>Skripsi</a>
-            </li>
-          </ul>
-          <a class="btn btn-danger ms-auto me-3" href=/logout>Logout</a>
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/dashboard"><strong>FINITO</strong></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/proposal">Proposal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/skripsi">Skripsi</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
 
-    <div class="container mt-4 mx-auto">
-      <h1>Welcome, {{ .nama }}</h1>
-      <div class="row mt-4">
-        <div class="col-md-4">
-          <div class="card mb-3">
-            <div class="card-body">
-              <h5 class="card-title">Profile</h5>
-              <p class="card-text">Edit your profile</p>
-              <a href=/eprof class="btn btn-primary">Edit Profile</a>
+    <div class="container-fluid mt-4">
+        <h1>Welcome, {{ .nama }}</h1>
+        <div class="row mt-4">
+            <div class="col-md-4 offset-md-4">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Proposal</h5>
+                        <p class="card-text">UNGGAH PROPOSAL TUGAS AKHIR</p>
+                        <a href="/proposal" class="btn btn-primary">Upload Proposal</a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-3">
-            <div class="card-body">
-              <h5 class="card-title">Proposal</h5>
-              <p class="card-text">Submit and review proposals</p>
-              <a href=/proposal class="btn btn-primary">Upload Proposal</a>
+            <div class="arrow-icon">
+              <i class="fas fa-arrow-down"></i>
             </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-3">
-            <div class="card-body">
-              <h5 class="card-title">Skripsi</h5>
-              <p class="card-text">Access skripsi resources</p>
-              <a href=/skripsi class="btn btn-primary">Upload Skripsi</a>
+            <div class="col-md-4 offset-md-4">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Skripsi</h5>
+                        <p class="card-text">UNGGAH SKRIPSI (TUGAS AKHIR) </p>
+                        <a href="/skripsi" class="btn btn-primary">Upload Skripsi</a>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
 
-    <!-- accordion -->
-    <div class="container mt-4">
-      <h1>FAQ</h1>
-      <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              <strong> Apa itu skripsi dan mengapa penting untuk menyelesaikannya?</strong>
-            </button>
-          </h2>
-          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-            <div class="accordion-body">Skripsi merupakan karya ilmiah yang ditulis oleh mahasiswa sebagai syarat untuk memperoleh gelar sarjana. Skripsi penting karena merupakan bukti kemampuan mahasiswa dalam melakukan penelitian mandiri, menganalisis, serta mengemukakan gagasan secara tertulis. Selain itu, skripsi juga menjadi landasan bagi mahasiswa untuk melanjutkan studi ke jenjang yang lebih tinggi atau memasuki dunia kerja.</div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              <strong>Bagaimana cara memilih judul skripsi yang tepat?</strong>
-            </button>
-          </h2>
-          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-            <div class="accordion-body">Memilih judul skripsi yang tepat memerlukan beberapa langkah yang perlu dipertimbangkan. Pertama, pilihlah topik yang sesuai dengan minat dan keahlian Anda. Kedua, tinjau literatur terkait topik yang diminati untuk mendapatkan gambaran yang lebih jelas. Ketiga, diskusikan ide-ide judul dengan dosen pembimbing untuk mendapatkan masukan dan arahan yang lebih baik. Terakhir, pastikan judul skripsi dapat diteliti secara mendalam dan relevan dengan perkembangan ilmu pengetahuan.</div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingThree">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              <strong>Bagaimana langkah-langkah dalam menyelesaikan skripsi dengan efektif?</strong>
-            </button>
-          </h2>
-          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-            <div class="accordion-body">Menyelesaikan skripsi dengan efektif memerlukan perencanaan dan disiplin yang baik. Pertama, tentukan jadwal dan target yang realistis untuk setiap tahapan penelitian, seperti pengumpulan data, analisis, dan penulisan. Kedua, rajinlah berkomunikasi dengan dosen pembimbing untuk mendapatkan bimbingan dan masukan secara berkala. Ketiga, jangan menunda-nunda pekerjaan, mulailah mengerjakan skripsi sejak dini dan tetap konsisten dalam menjalankan penelitian. Terakhir, selalu evaluasi progres dan kualitas penelitian Anda, serta siapkan rencana cadangan jika terjadi kendala.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- end accordion -->
-
-    <!-- BERITA TERKINI -->
-    <div class="container mt-4">
-      <h1>Berita Terkini</h1>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card mb-3">
-            <img src="img.jpg" class="card-img-top" alt="News 1" />
-            <div class="card-body">
-              <h5 class="card-title">Judul Berita 1</h5>
-              <p class="card-text">Deskripsi singkat tentang berita 1.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-3">
-            <img src="img.jpg" class="card-img-top" alt="News 2"/>
-            <div class="card-body">
-              <h5 class="card-title">Judul Berita 2</h5>
-              <p class="card-text">Deskripsi singkat tentang berita 2.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-3">
-            <img src="img.jpg" class="card-img-top" alt="News 3" />
-            <div class="card-body">
-              <h5 class="card-title">Judul Berita 3</h5>
-              <p class="card-text">Deskripsi singkat tentang berita 3.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- BERITA TERKINI END -->
+    <footer>
+        <p>&copy; FINITO</p>
+        <a class="btn btn-danger" href="/logout">Logout</a>
+    </footer>
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+</body>
 </html>

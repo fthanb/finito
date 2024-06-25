@@ -14,7 +14,6 @@ func main() {
 	http.HandleFunc("/login", authcontroller.Login)
 	http.HandleFunc("/logout", authcontroller.Logout)
 	http.HandleFunc("/register", authcontroller.Register)
-	http.HandleFunc("/eprof", authcontroller.Eprof())
 	fmt.Println("GAS")
 	http.ListenAndServe(":8000", nil)
 }
