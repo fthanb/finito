@@ -3,10 +3,7 @@ package controllers
 import (
 	"errors"
 	"html/template"
-	"io"
 	"net/http"
-	"os"
-	"path"
 
 	"github.com/fthanb/web-pplbo/config"
 	"github.com/fthanb/web-pplbo/entities"
@@ -157,82 +154,4 @@ func Register(w http.ResponseWriter, r *http.Request) {
 			temp.Execute(w, data)
 		}
 	}
-}
-
-var (
-	tempUp = template.Must(template.ParseFiles("views/proposal.html"))
-)
-
-func Up(w http.ResponseWriter, r *http.Request) {
-
-	if r.Method == http.MethodPost {
-		handleUpload(w, r)
-		return
-	}
-	tempUp.ExecuteTemplate(w, "proposal.html", nil)
-}
-func handleUpload(w http.ResponseWriter, r *http.Request) {
-	r.ParseMultipartForm((10 << 20))
-
-	file, fileHeader, err := r.FormFile("pdf")
-	if err != nil {
-		http.Error(w, "Gagal mengunggah file", http.StatusInternalServerError)
-		return
-	}
-	defer file.Close()
-
-	filename := path.Base(fileHeader.Filename)
-	dest, err := os.Create("C:/Users/Lenovo/Downloads/" + filename)
-	if err != nil {
-		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
-		return
-	}
-	defer dest.Close()
-
-	if _, err = io.Copy(dest, file); err != nil {
-		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
-		return
-	}
-
-	w.WriteHeader(http.StatusOK)
-	w.Write([]byte("PROPOSAL UPLOADED"))
-}
-
-var (
-	tempSc = template.Must(template.ParseFiles("views/skripsi.html"))
-)
-
-func UpSc(w http.ResponseWriter, r *http.Request) {
-
-	if r.Method == http.MethodPost {
-		handleUploadSc(w, r)
-		return
-	}
-	tempSc.ExecuteTemplate(w, "skripsi.html", nil)
-}
-func handleUploadSc(w http.ResponseWriter, r *http.Request) {
-	r.ParseMultipartForm((10 << 20))
-
-	file, fileHeader, err := r.FormFile("pdf")
-	if err != nil {
-		http.Error(w, "Gagal mengunggah file", http.StatusInternalServerError)
-		return
-	}
-	defer file.Close()
-
-	filename := path.Base(fileHeader.Filename)
-	dest, err := os.Create(filename)
-	if err != nil {
-		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
-		return
-	}
-	defer dest.Close()
-
-	if _, err = io.Copy(dest, file); err != nil {
-		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
-		return
-	}
-
-	w.WriteHeader(http.StatusOK)
-	w.Write([]byte("SKRIPSI UPLOADED"))
 }

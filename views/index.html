@@ -39,14 +39,6 @@
             background: linear-gradient(45deg, #007bff, #6610f2);
             border: none;
         }
-        .arrow-icon {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2rem;
-            color: black;
-            margin: 20px 0;
-        }
         footer {
             background-color: #343a40;
             color: #ffffff;
@@ -59,9 +51,14 @@
             align-items: center;
         }
         h1 {
-            text-align: center;
+            text-align: left;
+            margin-left: 260px;
+            margin-top: 3rem;
+            font-size: 2rem;
         }
-
+        .card-row {
+            margin-top: 4rem;
+        }
     </style>
 </head>
 <body>
@@ -71,43 +68,43 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/dashboard">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/proposal">Proposal</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/skripsi">Skripsi</a>
-                    </li>
-                </ul>
-            </div>
         </div>
     </nav>
 
     <div class="container-fluid mt-4">
         <h1>Welcome, {{ .nama }}</h1>
-        <div class="row mt-4">
-            <div class="col-md-4 offset-md-4">
+        <div class="row card-row">
+            <div class="col-md-4 offset-md-2">
                 <div class="card mb-3">
                     <div class="card-body">
-                        <h5 class="card-title">Proposal</h5>
-                        <p class="card-text">UNGGAH PROPOSAL TUGAS AKHIR</p>
-                        <a href="/proposal" class="btn btn-primary">Upload Proposal</a>
+                        <h5 class="card-title">Profil Mahasiswa</h5>
+                        <a href="/profil" class="btn btn-primary">Edit</a>
                     </div>
                 </div>
             </div>
-            <div class="arrow-icon">
-              <i class="fas fa-arrow-down"></i>
-            </div>
-            <div class="col-md-4 offset-md-4">
+            <div class="col-md-4">
                 <div class="card mb-3">
                     <div class="card-body">
-                        <h5 class="card-title">Skripsi</h5>
-                        <p class="card-text">UNGGAH SKRIPSI (TUGAS AKHIR) </p>
-                        <a href="/skripsi" class="btn btn-primary">Upload Skripsi</a>
+                        <h5 class="card-title">Dosen Pembimbing</h5>
+                        <a href="/dosbing" class="btn btn-primary">Edit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row card-row">
+            <div class="col-md-4 offset-md-2">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Verifikasi USEPT</h5>
+                        <a href="/usept" class="btn btn-primary">Upload</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Proposal Skripsi</h5>
+                        <a href="/proposal" class="btn btn-primary">Upload</a>
                     </div>
                 </div>
             </div>
@@ -118,8 +115,7 @@
         <p>&copy; FINITO</p>
         <a class="btn btn-danger" href="/logout">Logout</a>
     </footer>
-
-    <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
 </body>
 </html>
