@@ -21,6 +21,7 @@ func main() {
 	http.HandleFunc("/register", controller.Register)
 	http.HandleFunc("/profil", controller.NewMahasiswa(db))
 	http.HandleFunc("/dosen", controller.NewDosen(db))
+	http.HandleFunc("/proposal", controller.Upload(db))
 	fmt.Println("GAS")
 	http.ListenAndServe(":8000", nil)
 }
