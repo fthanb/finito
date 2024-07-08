@@ -2,16 +2,25 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 
-	authcontroller "github.com/fthanb/web-pplbo/controllers"
+	config "github.com/fthanb/web-pplbo/config"
+	controller "github.com/fthanb/web-pplbo/controllers"
 )
 
 func main() {
-	http.HandleFunc("/dashboard", authcontroller.Index)
-	http.HandleFunc("/login", authcontroller.Login)
-	http.HandleFunc("/logout", authcontroller.Logout)
-	http.HandleFunc("/register", authcontroller.Register)
+	db, err := config.DBConn()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	http.HandleFunc("/dashboard", controller.Index)
+	http.HandleFunc("/login", controller.Login)
+	http.HandleFunc("/logout", controller.Logout)
+	http.HandleFunc("/register", controller.Register)
+	http.HandleFunc("/profil", controller.NewMahasiswa(db))
+	http.HandleFunc("/dosen", controller.NewDosen(db))
 	fmt.Println("GAS")
 	http.ListenAndServe(":8000", nil)
 }
