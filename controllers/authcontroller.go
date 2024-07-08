@@ -40,7 +40,6 @@ func Index(w http.ResponseWriter, r *http.Request) {
 			temp.Execute(w, data)
 		}
 	}
-
 }
 
 func Login(w http.ResponseWriter, r *http.Request) {
@@ -51,7 +50,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	} else if r.Method == http.MethodPost {
 		r.ParseForm()
 		UserInput := &UserInput{
-			Nama:     r.Form.Get("nama"),
+
 			Nim:      r.Form.Get("nim"),
 			Password: r.Form.Get("password"),
 		}
@@ -92,7 +91,6 @@ func Login(w http.ResponseWriter, r *http.Request) {
 
 func Logout(w http.ResponseWriter, r *http.Request) {
 	session, _ := config.Store.Get(r, config.SESSION_ID)
-	// delete session
 	session.Options.MaxAge = -1
 	session.Save(r, w)
 

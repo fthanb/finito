@@ -14,11 +14,11 @@ func NewDosen(db *sql.DB) http.HandlerFunc {
 				http.Error(w, err.Error(), http.StatusInternalServerError)
 				return
 			}
-
+			no_reg := r.FormValue("no_reg")
 			nama_dosen := r.FormValue("nama_d")
 			nip := r.FormValue("nip")
 
-			_, err := db.Exec("INSERT INTO dosen (nama_dosen, nip) VALUES (?, ?)", nama_dosen, nip)
+			_, err := db.Exec("INSERT INTO dosen (no_reg, nama_dosen, nip) VALUES (?, ?, ?)", no_reg, nama_dosen, nip)
 			if err != nil {
 				http.Error(w, err.Error(), http.StatusInternalServerError)
 				return

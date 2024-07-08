@@ -34,10 +34,18 @@
             border-radius: 10px;
         }
         .btn-primary {
-            display: block;
-            margin: 0 auto;
             background: linear-gradient(45deg, #007bff, #6610f2);
             border: none;
+            width: 45%;
+        }
+        .btn-group {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .btn-group a {
+            margin: 5px 0;
         }
         footer {
             background-color: #343a40;
@@ -78,7 +86,10 @@
                 <div class="card mb-3">
                     <div class="card-body">
                         <h5 class="card-title">Profil Mahasiswa</h5>
-                        <a href="/profil" class="btn btn-primary">Edit</a>
+                        <div class="btn-group" role="group">
+                            <a href="/profil" class="btn btn-primary">Tambah</a>
+                            <a href="/edit_profil" class="btn btn-primary">Edit</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -86,7 +97,10 @@
                 <div class="card mb-3">
                     <div class="card-body">
                         <h5 class="card-title">Dosen Pembimbing</h5>
-                        <a href="/dosbing" class="btn btn-primary">Edit</a>
+                        <div class="btn-group" role="group">
+                            <a href="/dosen" class="btn btn-primary">Tambah</a>
+                            <a href="/edit_dosen" class="btn btn-primary">Edit</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -95,16 +109,16 @@
             <div class="col-md-4 offset-md-2">
                 <div class="card mb-3">
                     <div class="card-body">
-                        <h5 class="card-title">Verifikasi USEPT</h5>
-                        <a href="/usept" class="btn btn-primary">Upload</a>
+                        <h5 class="card-title">Proposal Skripsi</h5>
+                        <a href="/proposal" class="btn btn-primary" style="width: 100%;">Upload</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card mb-3">
                     <div class="card-body">
-                        <h5 class="card-title">Proposal Skripsi</h5>
-                        <a href="/proposal" class="btn btn-primary">Upload</a>
+                        <h5 class="card-title">Data & Status</h5>
+                        <a href="/status" class="btn btn-primary" style="width: 100%;">Lihat</a>
                     </div>
                 </div>
             </div>

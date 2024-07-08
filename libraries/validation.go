@@ -38,10 +38,8 @@ func (v *Validation) Init() (*validator.Validate, ut.Translator) {
 
 	validate := validator.New()
 
-	// register default translation (en)
 	en_translations.RegisterDefaultTranslations(validate, trans)
 
-	// mengubah label default
 	validate.RegisterTagNameFunc(func(field reflect.StructField) string {
 		labelName := field.Tag.Get("label")
 		return labelName
@@ -107,9 +105,6 @@ func (v *Validation) checkIsUnique(tableName, fieldName, fieldValue string) bool
 	for row.Next() {
 		row.Scan(&result)
 	}
-
-	// email@tentangkode
-	// email@tentangkode
 
 	return result != fieldValue
 }
