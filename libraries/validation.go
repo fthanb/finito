@@ -30,7 +30,7 @@ func NewValidation() *Validation {
 }
 
 func (v *Validation) Init() (*validator.Validate, ut.Translator) {
-	// memanggil package translator
+
 	translator := en.New()
 	uni := ut.New(translator, translator)
 

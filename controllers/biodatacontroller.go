@@ -14,13 +14,13 @@ func NewMahasiswa(db *sql.DB) http.HandlerFunc {
 				http.Error(w, err.Error(), http.StatusInternalServerError)
 				return
 			}
-
+			no_reg := r.FormValue("no_reg")
 			nama := r.FormValue("nama")
 			nim := r.FormValue("nim")
 			alamat := r.FormValue("alamat")
 			no_telp := r.FormValue("no")
 
-			_, err := db.Exec("INSERT INTO biodata (nama, nim, alamat, no_telp) VALUES (?, ?, ?, ?)", nama, nim, alamat, no_telp)
+			_, err := db.Exec("INSERT INTO biodata (no_reg, nama, nim, alamat, no_telp) VALUES (?, ?, ?, ?, ?)", no_reg, nama, nim, alamat, no_telp)
 			if err != nil {
 				http.Error(w, err.Error(), http.StatusInternalServerError)
 				return

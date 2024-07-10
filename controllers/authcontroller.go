@@ -14,6 +14,7 @@ import (
 )
 
 type UserInput struct {
+	Id       int
 	Nama     string `validate:"required"`
 	Nim      string `validate:"required"`
 	Password string `validate:"required"`
@@ -35,6 +36,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		} else {
 			data := map[string]interface{}{
 				"nama": session.Values["nama"],
+				"id":   session.Values["id"],
 			}
 			temp, _ := template.ParseFiles("views/index.html")
 			temp.Execute(w, data)
@@ -81,6 +83,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 
 			session.Values["loggedIn"] = true
 			session.Values["nama"] = user.Nama
+			session.Values["id"] = user.Id
 
 			session.Save(r, w)
 
