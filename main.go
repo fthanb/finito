@@ -14,7 +14,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	http.HandleFunc("/dashboard", controller.Index)
 	http.HandleFunc("/login", controller.Login)
 	http.HandleFunc("/logout", controller.Logout)
@@ -22,6 +21,7 @@ func main() {
 	http.HandleFunc("/profil", controller.NewMahasiswa(db))
 	http.HandleFunc("/dosen", controller.NewDosen(db))
 	http.HandleFunc("/proposal", controller.Upload(db))
+	http.HandleFunc("/status", controller.Status(db))
 	fmt.Println("GAS")
 	http.ListenAndServe(":8000", nil)
 }
