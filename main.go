@@ -23,6 +23,7 @@ func main() {
 	http.HandleFunc("/proposal", controller.Upload(db))
 	http.HandleFunc("/status", controller.Status(db))
 	http.HandleFunc("/edit", controller.EditAndUpdate(db))
+	http.HandleFunc("/delete", controller.DeleteHandler(db))
 
 	fmt.Println("GAS")
 	http.ListenAndServe(":8000", nil)

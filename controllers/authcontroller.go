@@ -24,13 +24,11 @@ var userModel = models.NewUserModel()
 var validation = libraries.NewValidation()
 
 func Index(w http.ResponseWriter, r *http.Request) {
-
 	session, _ := config.Store.Get(r, config.SESSION_ID)
 
 	if len(session.Values) == 0 {
 		http.Redirect(w, r, "/login", http.StatusSeeOther)
 	} else {
-
 		if session.Values["loggedIn"] != true {
 			http.Redirect(w, r, "/login", http.StatusSeeOther)
 		} else {
@@ -45,7 +43,6 @@ func Index(w http.ResponseWriter, r *http.Request) {
 }
 
 func Login(w http.ResponseWriter, r *http.Request) {
-
 	if r.Method == http.MethodGet {
 		temp, _ := template.ParseFiles("views/login.html")
 		temp.Execute(w, nil)
@@ -70,7 +67,6 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		}
 
 		if message != nil {
-
 			data := map[string]interface{}{
 				"error": message,
 			}
@@ -78,7 +74,6 @@ func Login(w http.ResponseWriter, r *http.Request) {
 			temp, _ := template.ParseFiles("views/login.html")
 			temp.Execute(w, data)
 		} else {
-			//create session
 			session, _ := config.Store.Get(r, config.SESSION_ID)
 
 			session.Values["loggedIn"] = true
