@@ -9,8 +9,28 @@
     <style>
         body {
             background-color: #f8f9fa;
-            margin: 0;
-            padding: 0;
+        }
+        .table-container {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        .table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 0 auto;
+        }
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        .table th {
+            background-color: #e7e2e2;
+        }
+        table.table tbody tr td.adm {
+            color: blue; 
+            font-weight: bold;
         }
         footer {
             background-color: #343a40;
@@ -22,10 +42,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-        table.table tbody tr td.adm {
-            color: blue; 
-            font-weight: bold;
         }
     </style>
 </head>
