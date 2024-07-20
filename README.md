@@ -14,83 +14,69 @@
   <tbody>
     <tr>
       <td><strong>Register</strong></td>
-      <td>`http://localhost:8000/register`</td>
-      <td>GET</td>
-      <td>
-      </td>
-      <td>
-        <strong>Kode:</strong> 200 OK<br>
-        <strong>Konten:</strong><br>
-        ```html<br>
-        <p>Registrasi berhasil</p><br>
-        ```
-      </td>
-    </tr>
-    <tr>
-      <td><strong>Register</strong></td>
-      <td>`http://localhost:8000/register`</td>
+      <td>`/register`</td>
       <td>POST</td>
       <td>
         <strong>Request Params:</strong><br>
         - **Nama**: string [default ""]<br>
-        - **Nim**: string [default ""]<br>
-        - **Password**: string [default ""]<br>
+        - **Nim**: string [default "11"]<br>
+        - **Password**: string [default "6"]<br>
         - **Cpassword**: string [default ""]
       </td>
       <td>
-        <strong>Kode:</strong> 200 OK<br>
-        <strong>Konten:</strong><br>
-        ```html<br>
-        <p>Registrasi berhasil</p><br>
-        ```
+          <strong>Code:</strong> 200 OK<br>
+          <strong>Data:</strong> [<br>
+              {"id": "1",<br>
+               "nama": "Muhammad Fathan Mukhlisan",<br>
+               "nim": "09021182227009",<br>
+               "password": "$2a$10$FSWf1TGdn0k0wi4IVxttxOoy<br>
+                          31OSCWgDV8aryaZASa05dsDE5V8ou",<br>
+                }]<br>
+          <strong>View:</strong>
+          ```register.html
+          <p>Registrasi berhasil</p>
+          ```
       </td>
     </tr>
     <tr>
       <td><strong>Login</strong></td>
-      <td>`http://localhost:8000/login`</td>
-      <td>GET</td>
-      <td>
-      </td>
-      <td>
-        <strong>Kode:</strong> 200 OK<br>
-        <strong>Konten:</strong> Merender HTML formulir login.
-      </td>
-    </tr>
-    <tr>
-      <td><strong>Login</strong></td>
-      <td>`http://localhost:8000/login`</td>
+      <td>`/login`</td>
       <td>POST</td>
       <td>
         <strong>Request Params:</strong><br>
-        - **nim**: string [default ""]<br>
-        - **password**: string [default ""]
+        - **nim**: string [default "11"]<br>
+        - **password**: string [default "6"]
       </td>
       <td>
-        <strong>Kode:</strong> 303 See Other<br>
-        <strong>Konten:</strong> Mengalihkan ke `/dashboard`<br>
+        <strong>Code:</strong> 200 OK<br>
         <strong>Headers:</strong> `Location: /dashboard`<br>
-        <strong>Respon Error:</strong><br>
-        **Kode:** 200 OK<br>
-        **Konten:**<br>
-        ```html<br>
-        <p>NIM/Password Salah</p><br>
+        <br>
+        <strong>Success:</strong><br>
+        <strong>Data:</strong> [<br>
+              {"nim": "09021182227009",<br>
+               "password": "testing123",<br>
+         <strong>View:</strong> index.html (/dashboard)<br>
+        <br>
+        <strong>Failed:</strong><br>
+        ```login.html<br>
+        <p>NIM/Password Salah</p>
         ```
       </td>
     </tr>
     <tr>
-      <td><strong>NewMahasiswa</strong></td>
-      <td>`http://localhost:8000/new-mahasiswa`</td>
+      <td><strong>Profil</strong></td>
+      <td>`/new-mahasiswa`</td>
       <td>GET</td>
       <td>
       </td>
       <td>
-        <strong>Kode:</strong> 200 OK<br>
-        <strong>Konten:</strong> Merender HTML formulir pembuatan profil.
+        <strong>Code:</strong> 200 OK<br>
+        <strong>View:</strong> profil.html
       </td>
     </tr>
     <tr>
-      <td><strong>NewMahasiswa</strong></td>
-      <td>`http://localhost:8000/new-mahasiswa`</td>
+      <td><strong>Profil</strong></td>
+      <td>`/new-mahasiswa`</td>
       <td>POST</td>
       <td>
         <strong>Request Params:</strong><br>
@@ -101,32 +87,31 @@
         - **no**: string [default ""]
       </td>
       <td>
-        <strong>Kode:</strong> 301 Moved Permanently<br>
-        <strong>Konten:</strong> Mengalihkan ke `/dashboard`<br>
-        <strong>Respon Error Internal Server:</strong><br>
-        **Kode:** 500 Internal Server Error<br>
-        **Konten:**<br>
-        ```json<br>
-        {<br>
-        "error": "Pesan kesalahan server internal"<br>
-        }<br>
-        ```
+        <strong>Code:</strong> 301 Moved Permanently<br>
+        <strong>View:</strong> index.html<br>
+        <strong>Data:</strong> [<br>
+              {"no_reg": "1",<br>
+               "nama": "Muhammad Fathan Mukhlisan",<br>
+               "nim": "09021182227009",<br>
+               "alamat": "Jln. White Rabbit",<br>
+                "no": "081280818081"
+                }]<br>
       </td>
     </tr>
     <tr>
-      <td><strong>NewDosen</strong></td>
-      <td>`http://localhost:8000/new-dosen`</td>
+      <td><strong>Dosen</strong></td>
+      <td>`/new-dosen`</td>
       <td>GET</td>
       <td>
       </td>
       <td>
-        <strong>Kode:</strong> 200 OK<br>
-        <strong>Konten:</strong> Merender HTML formulir.
+        <strong>Code:</strong> 200 OK<br>
+        <strong>View:</strong> dosen.html
       </td>
     </tr>
     <tr>
-      <td><strong>NewDosen</strong></td>
-      <td>`http://localhost:8000/new-dosen`</td>
+      <td><strong>Dosen</strong></td>
+      <td>`/new-dosen`</td>
       <td>POST</td>
       <td>
         <strong>Request Params:</strong><br>
@@ -135,58 +120,63 @@
         - **nip**: string [default ""]
       </td>
       <td>
-        <strong>Kode:</strong> 301 Moved Permanently<br>
-        <strong>Konten:</strong> Mengalihkan ke `/dashboard`.
+        <strong>Code:</strong> 301 Moved Permanently<br>
+        <strong>View:</strong> index.html (/dashboard)<br>
+        <strong>Data:</strong> [<br>
+              {"no_reg": "1",<br>
+               "nama_dosen": "Axel Christensen",<br>
+               "nip": "123456789",<br>
+                }]<br>
       </td>
     </tr>
     <tr>
-      <td><strong>EditAndUpdate</strong></td>
-      <td>`http://localhost:8000/edit-update?type={type}&id={id}`</td>
+      <td><strong>Edit</strong></td>
+      <td>`/edit-update?type={type}&id={id}`</td>
       <td>GET</td>
       <td>
         <strong>Request Params:</strong><br>
-        - **type**: string [default "biodata"]<br>
+        - **type**: string [default "bioData"]<br>
         - **id**: string [default ""]
       </td>
       <td>
-        <strong>Kode:</strong> 200 OK<br>
-        <strong>Konten:</strong> Merender formulir dengan data yang ada.
+        <strong>Code:</strong> 200 OK<br>
+        <strong>View:</strong> edit.html
       </td>
     </tr>
     <tr>
-      <td><strong>EditAndUpdate</strong></td>
-      <td>`http://localhost:8000/edit-update?type={type}&id={id}`</td>
+      <td><strong>Edit</strong></td>
+      <td>`/edit-update?type={type}&id={id}`</td>
       <td>POST</td>
       <td>
         <strong>Request Params:</strong><br>
-        - **type**: string [default "biodata"]<br>
+        - **type**: string [default "bioData"]<br>
         - **id**: string [default ""]<br>
-        - **nama**: string [default ""] (untuk `biodata`)<br>
-        - **nim**: string [default ""] (untuk `biodata`)<br>
-        - **alamat**: string [default ""] (untuk `biodata`)<br>
-        - **no_telp**: string [default ""] (untuk `biodata`)<br>
+        - **nama**: string [default ""] (untuk `bioData`)<br>
+        - **nim**: string [default ""] (untuk `bioData`)<br>
+        - **alamat**: string [default ""] (untuk `bioData`)<br>
+        - **no_telp**: string [default ""] (untuk `bioData`)<br>
         - **nama_dosen**: string [default ""] (untuk `dosen`)<br>
         - **nip**: string [default ""] (untuk `dosen`)
       </td>
       <td>
-        <strong>Kode:</strong> 303 See Other<br>
-        <strong>Konten:</strong> Mengalihkan ke `/dashboard`.
+        <strong>Code:</strong> 200 OK<br>
+        <strong>View:</strong> index.html (/dashboard)
       </td>
     </tr>
     <tr>
       <td><strong>Upload</strong></td>
-      <td>`http://localhost:8000/upload`</td>
+      <td>`/upload`</td>
       <td>GET</td>
       <td>
       </td>
       <td>
-        <strong>Kode:</strong> 200 OK<br>
-        <strong>Konten:</strong> Merender HTML formulir unggah file.
+        <strong>Code:</strong> 200 OK<br>
+        <strong>View:</strong> upload.html
       </td>
     </tr>
     <tr>
       <td><strong>Upload</strong></td>
-      <td>`http://localhost:8000/upload`</td>
+      <td>`/upload`</td>
       <td>POST</td>
       <td>
         <strong>Request Params:</strong><br>
@@ -194,45 +184,55 @@
         - **no_reg**: string [default ""]
       </td>
       <td>
-        <strong>Kode:</strong> 301 Moved Permanently<br>
-        <strong>Konten:</strong> Mengalihkan ke `/dashboard`.
+        <strong>Code:</strong> 301 Moved Permanently<br>
+        <strong>View:</strong> index.html(/dashboard)<br>
+        <strong>Data:</strong> [<br>
+              {"no_reg": "1",<br>
+               "myFile": "Proposal Skripsi.pdf",<br>
+                }]<br>
       </td>
     </tr>
     <tr>
       <td><strong>Status</strong></td>
-      <td>`http://localhost:8000/status`</td>
+      <td>`/status`</td>
       <td>GET</td>
       <td>
       </td>
       <td>
-        <strong>Kode:</strong> 200 OK<br>
-        <strong>Konten:</strong> Merender HTML data ringkasan.
+        <strong>Code:</strong> 200 OK<br>
+        <strong>View:</strong> status.html
       </td>
     </tr>
     <tr>
       <td><strong>Status</strong></td>
-      <td>`http://localhost:8000/status`</td>
+      <td>`/status`</td>
       <td>POST</td>
       <td>
         <strong>Request Params:</strong><br>
         - **id**: string [default ""]
       </td>
       <td>
-        <strong>Kode:</strong> 303 See Other<br>
-        <strong>Konten:</strong> Mengalihkan ke `/status`.
+        <strong>Code:</strong> 200 OK<br>
+        <strong>Konten:</strong> <br>
+        ```status.html <br>
+        Nama NIM DosenPembimbing Judul Proposal                                     
+        ```
       </td>
     </tr>
     <tr>
-      <td><strong>DeleteHandler</strong></td>
-      <td>`http://localhost:8000/delete`</td>
+      <td><strong>Delete</strong></td>
+      <td>`/delete`</td>
       <td>POST</td>
       <td>
         <strong>Request Params:</strong><br>
         - **id**: string [default ""]
       </td>
       <td>
-        <strong>Kode:</strong> 303 See Other<br>
-        <strong>Konten:</strong> Mengalihkan ke `/status`.
+        <strong>Code:</strong> 200 OK<br>
+        <strong>Konten:</strong> <br>
+        ```status.html <br>
+        <br>                                    
+        ```
       </td>
     </tr>
   </tbody>
