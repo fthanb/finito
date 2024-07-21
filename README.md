@@ -25,6 +25,8 @@
       </td>
       <td>
           <strong>Code:</strong> 200 OK<br>
+        <br>
+        <strong>Success:</strong><br>
           <strong>Data:</strong> [<br>
               {"id": "1",<br>
                "nama": "Muhammad Fathan Mukhlisan",<br>
@@ -35,6 +37,11 @@
           <strong>View:</strong>
           ```register.html
           <p>Registrasi berhasil</p>
+          ```
+          <br>
+          <strong>View:</strong>
+          ```register.html
+          <p>Field tidak boleh kosong</p>
           ```
       </td>
     </tr>
